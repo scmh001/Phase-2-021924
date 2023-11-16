@@ -43,8 +43,9 @@
 
   ##### - pass the callback function down as a prop to `ProjectList`
 
-##### 3c. Using inverse data flow, get the value of the phase to filter by UP to the App component:
-##### - Invoke the callback function from the onClick event listener
+##### 3c. Using inverse data flow, get the value of the phase from ProjectList UP to the App component
+
+##### - Invoke the callback function from the onClick event listener in ProjectList
 
 <br />
 
