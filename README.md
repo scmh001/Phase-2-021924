@@ -39,7 +39,7 @@
 
 <br />
 
-#### 4. Create a search by name filter
+#### 4. Create a search by name filter in `ProjectList`
 ##### 4a. Create state for the `searchQuery` in `ProjectList`
 ##### 4b. Create a controlled form for the search query
-##### 4c. One search query change update the `searchQuery`
+##### 4c. On search query change update the `searchQuery`

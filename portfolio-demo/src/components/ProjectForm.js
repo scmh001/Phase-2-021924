@@ -1,26 +1,18 @@
 import { useState } from "react";
 
-/*
-
-controlled form process
-
-1. make state that represents form values (and ultimately the structure of what gets added to the database)
-2. add value to each JSX input so that it displays what is in state ( value = {formState.name} )
-3. create onChange callback to dynamically update form state { ...form, [e.target.name]: e.target.value }
-4. add onChange to every input field
-5. create onSubmit callback that adds form values to appropriate place, reset form (state)
-- don't forget your e.preventDefault()
-
-*/
-
+//✅ 2. Make the ProjectForm component a controlled component
+//✅ 3. Handle submitting the form and update state in parent using inverse data flow
 function ProjectForm({ addProject }) {
+	//✅ 2a. Initialize state for all the form fields found in the component
+	
+	//🛑 bad, repetitive, not dynamic way
 	// const [ about, setAbout ] = useState('')
 	// const [ name, setName ] = useState('')
 	// const [ phase, setPhase ] = useState(0)
 	// const [ link, setLink ] = useState('')
 	// const [image, setImage] = useState('')
 
-	//our empty form initially
+	//💚 our empty form initially
 	const formOutline = {
 		name: "",
 		about: "",
@@ -30,21 +22,34 @@ function ProjectForm({ addProject }) {
 		claps: 0,
 	};
 
-	//form state initialized to empty form outline
+	//🛑 form state initialized to empty form outline
 	const [form, setForm] = useState(formOutline);
 
-	const handleSubmit = (e) => {
-		e.preventDefault(); //we still need this in synthetic events
+	//✅ 2b. Add an onChange event to each field that will update state associated to the field that is interacted with
+	//✅ 2c. Provide a value attribute to each form field that will return the associated piece of state
+	const handleChange = (e) => {
+		setForm({
+			...form,
+			//🛑  update input field (e.target.name) with new value (e.target.value)
+			[e.target.name]: e.target.value,
+		});
+	};
 
+	//✅ 2d. Add an onSubmit event handler to the form
+	const handleSubmit = (e) => {
+		e.preventDefault(); //🛑 we still need this in synthetic events
+
+		//💚 more dynamic way:
 		// addProject({
-		// 	name,  //no curly braces, because not in JSX
-		// 	about, //shortcut for about: about when both key/variable is same name
+		// 	name,  //🛑 no curly braces, because not in JSX
+		// 	about, //🛑 shortcut for about: about when both key/variable is same name
 		// 	link: link,
 		// 	image: image,
 		// 	phase: parseInt(phase),
 		// 	claps: 0
 		// })
 
+		//🛑 bad, not dynamic way
 		// setAbout('')
 		// setName('')
 		// setPhase(0)
@@ -63,38 +68,18 @@ function ProjectForm({ addProject }) {
 			},
 		})
 		.then((res) => res.json())
-		//only want App's projects state to update
-		//only want form to reset
-		//if post request was successful
 		.then((data) => {
-
-			// addProject({
-			// 	...form, 
-			// 	phase: parseInt(form.phase)
-			// })
-
-			//call addProject with data returned by POST request
-			//so that we can also pass up id created by json-server
+			//✅ 3a. Use inverse data flow to include the new project in the projects state in App
+			//🛑  call addProject with data returned by POST request so that we can also pass up id created by json-server
 			addProject(data); 
-
-
-			//reset form on successful submit
+			//🛑 reset form on successful submit
 			setForm(formOutline);
 		})
 		.catch(err => console.log(err))
-
-		
 	};
 
-	const handleChange = (e) => {
-		setForm({
-			...form,
-			//update input field (e.target.name) with new value (e.target.value)
-			[e.target.name]: e.target.value,
-		});
-	};
 
-	//only in JSX in return statement / no html
+	
 	return (
 		<section>
 			<form
@@ -161,3 +146,17 @@ function ProjectForm({ addProject }) {
 }
 
 export default ProjectForm;
+
+
+/*
+
+controlled form process
+
+1. make state that represents form values (and ultimately the structure of what gets added to the database)
+2. add value to each JSX input so that it displays what is in state ( value = {formState.name} )
+3. create onChange callback to dynamically update form state { ...form, [e.target.name]: e.target.value }
+4. add onChange to every input field
+5. create onSubmit callback that adds form values to appropriate place, reset form (state)
+- don't forget your e.preventDefault()
+
+*/

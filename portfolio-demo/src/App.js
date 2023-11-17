@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import ProjectList from "./components/ProjectList";
 import ProjectForm from "./components/ProjectForm";
 
+//✅ 1. Create a ProjectForm component that will create a new project
 function App() {
 
   const [darkMode, setDarkMode] = useState(true)
