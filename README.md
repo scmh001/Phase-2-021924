@@ -27,26 +27,13 @@ What URLs do we want our application to have to simulate the feeling of differen
 
 ## Deliverables
 
-#### 1. Install and setup react router
-
-##### - The curriculum uses React Router V5 however in this demonstration we will be using V6.
-##### - There are particularly major updates regarding hooks and nested routes.
-
-
+#### 1. Install and setup react router in `index.js`
 
 ##### 1a. Within `index.js`, import the `react-router-dom` library and wrap the `App` component with `BrowserRouter` 
 
 <br /> 
 
-
-#### 2. Create the following new components: `Home.js`, `About.js`, `ProjectsPage.js`, `CreateProjectForm.js`, `EditProjectForm.js` and `ProjectDetail.js`
-##### 2a. Refactor the new project form to be inside `CreateProjectForm.js`
-##### 2b. Refactor the edit project form to be inside `EditProjectForm.js`
-##### 2c. Refactor `ProjectDetail` to include the component `ProjectListItem`
-
-<br /> 
-
-#### 3. Creater a Router tree in `App.js` with the following routes:
+#### 2. Creater a Router tree in `App.js` with the following routes:
 ##### - `/home` to `<Home />`
 ##### - `/new` to `<CreateProjectForm />`
 ##### - `/about` to `<About />`
@@ -59,20 +46,13 @@ What URLs do we want our application to have to simulate the feeling of differen
 <br /> 
 
 
-#### 4. Add `Link`s and `NavLink`s in `Header` for the new routes
-##### 4a. Include a `Link` on button `View All Projects` in `Home` that navigates to `/projects`
-##### 4b. In `ProjectsPage` replace `<CreateProjectForm />` with a `Link` to the appropriate route
+#### 3. Add `Link`s and `NavLink`s in `Header` for the new routes
+##### 3a. Include a `Link` on button `View All Projects` in `Home` that navigates to `/projects`
+##### 3b. In `ProjectsPage` replace `<CreateProjectForm />` with a `Link` to the appropriate route
 
 <br /> 
 
-#### 5. Refactor `App.js` and `ProjectsList` to move everything to `ProjectsPage` such that `App` only contains the `Router` tree and the `Header`
-##### - Keep the search functionality in `ProjectsList`
-
-
-<br /> 
-
-#### 6. Refactor so that the new project form is in `CreateProjectForm` 
-##### 6a. Redirect to the `/projects` page when a new project is successfully created.
+#### 4. In `CreateProjectForm` redirect to the `/projects` page when a new project is successfully created.
 
 
 <br /> 
