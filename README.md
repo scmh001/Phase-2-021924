@@ -46,6 +46,4 @@
 
 ##### 4c. Filter through `projects` based on `phaseState` and `searchQuery` inside the useEffect
 
-##### 4d. Set `filteredProjects` to the filtered state
-
-##### - Open up the devtools to observe when the cleanup will occur in the stages of a components lifecycles
+##### 4d. Set `filteredProjects` to new result
