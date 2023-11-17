@@ -102,7 +102,7 @@ a {
 
 a:hover {
   background-color: var(--blue);
-  border-bottom: 1px solid var(--blue);
+  border-bottom: 1px solid var(--mid-turquoise);
 }
 
 /* header */
@@ -111,6 +111,9 @@ header {
   display: flex;
   justify-content: space-between;
   align-content: center;
+}
+header a:hover {
+  color: var(--mid-turquoise)
 }
 
 .logo {
@@ -189,6 +192,9 @@ select:focus {
 }
 
 @media screen and (max-width: 588px) {
+  header {
+    flex-direction: column;
+  }
   .card {
     display: block;
     max-width: inherit;
@@ -248,4 +254,11 @@ select:focus {
   background-color: var(--blue);
   border: 2px solid var(--blue-dark);
   color: var(--white);
+}
+
+.manage-button a {
+  border-bottom: none;
+}
+a:hover {
+  background-color: unset;
 }

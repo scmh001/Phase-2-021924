@@ -13,7 +13,7 @@ function ProjectDetails() {
   }, [])
 
   return (
-    <div>
+    <div >
       <ProjectListItem project={project} />
     </div>
   )

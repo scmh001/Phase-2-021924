@@ -42,9 +42,11 @@ function ProjectListItem({ project, deleteProject }) {
 					{/* 8. make link to EditProject.js */}
 
 					{/* <button onClick={() => updateProjectToEdit(project)}> */}
-					<Link to={`/projects/${id}/edit`}>
-						<FaPencilAlt />
-					</Link>
+					<button class="manage-button">
+						<Link to={`/projects/${id}/edit`}>
+							<FaPencilAlt />
+						</Link>
+					</button>
 					{/* </button> */}
 					<button onClick={() => handleDelete()}>
 						<FaTrash />

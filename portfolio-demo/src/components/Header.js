@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from 'react-router-dom'
 
-function Header({ updateDarkMode }) {
+function Header({ updateDarkMode, darkMode }) {
 	return (
 		<header>
 			<h1>
 				<span className="logo">{"//"}</span>
 				Project Showcase
 			</h1>
-			<button onClick={updateDarkMode}>Dark Mode</button>
+			<button onClick={updateDarkMode}>{darkMode ? "Light Mode" : "Dark Mode"}</button>
 			<Link to={'/home'} className="button">
 				Home
 			</Link>
