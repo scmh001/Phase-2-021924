@@ -1,21 +1,26 @@
 import { useState, useEffect } from "react";
 
+// ✅ 1a. Make ProjectEditForm a controlled form
 function ProjectEditForm({ projectToEdit, editProject }) {
 
 	const [formData, setFormData] = useState({...projectToEdit});
 
-	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~ UPDATE FORMDATA WHEN PROJECTTOEDIT CHANGES (IN APP.JS)
+	//👍 ~~~~ UPDATE FORMDATA WHEN PROJECTTOEDIT CHANGES (IN APP.JS)
 	useEffect(() => {
 		setFormData({...projectToEdit})
 	}, [projectToEdit])
 
-	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ PASS FORMDATA TO APP.JS FOR PATCH
+	// ✅ 3. Submit the edit project form and make a PATCH request
+	// ✅ 3a. In App create a function that executes the PATCH request.
+	// ✅ 3b. In App update projects with the revised project and reset projectToEdit.
+	// ✅ 3c. Pass this function down to ProjectEditForm
+	//👍 ~~~~ PASS FORMDATA TO APP.JS FOR PATCH
 	const handleSubmit = (e) => {
 		e.preventDefault()
 		editProject(formData)
 	};
 
-	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ UPDATE FORMDATA ON INPUT CHANGE
+	//👍 ~~~~ UPDATE FORMDATA ON INPUT CHANGE
 	const handleOnChange = (e) => {
 		setFormData(
 			{
@@ -26,7 +31,7 @@ function ProjectEditForm({ projectToEdit, editProject }) {
 	};
 
 	return (
-		// if projectToEdit HAS NO KEYS, hide form
+		//🛑 if projectToEdit HAS NO KEYS, hide form
 		<form onSubmit={handleSubmit} className="form" autoComplete="off" style={{display: Object.keys(projectToEdit).length === 0 ? "none" : "flex"}}>
 			<h3>Edit Project</h3>
 

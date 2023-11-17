@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ProjectListItem from "./ProjectListItem";
 
+//🛑 keep passing props down to ProjectListItem
 function ProjectList({ projects, updateProjectToEdit, editProject, deleteProject }) {
 	const [searchQuery, setSearchQuery] = useState("");
 	const [phaseState, setPhase] = useState(0);

@@ -1,15 +1,19 @@
 import { useState } from "react";
 import { FaPencilAlt, FaTrash } from "react-icons/fa";
 
+// ✅ 4. For the clap button, update the onClick event handler to send a PATCH request to save the updated claps in the database
+// ✅ 4a. Send this information to App and include it in projects
+
+// ✅ 5. Add a delete button to ProjectListItem
+// ✅ 5a. Create an onClick event handler
+// ✅ 5b. When clicked, use a fetch request to delete the project from the database
+// ✅ 5c. Pass this information to App and remove the appropriate project from projects
 function ProjectListItem({ project, editProject, updateProjectToEdit, deleteProject }) {
 	let { id, name, about, image, claps, link, phase } = project;
-
-	//represents current claps of projectListItem 
 	const [projectClaps, setProjectClaps] = useState(claps);
 
-	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~PATCH REQUEST FOR CLAPS
 	const handleClap = () => {
-		//patch request, callback function editProject in App.js
+		//🛑 patch request, callback function editProject in App.js
 		editProject({
 			...project,
 			claps: project.claps + 1
@@ -17,23 +21,19 @@ function ProjectListItem({ project, editProject, updateProjectToEdit, deleteProj
 		setProjectClaps((prevProjectClaps) => prevProjectClaps + 1);
 	};
 
-	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~DELETE PROJECT
 	const handleDelete = () => {
 		fetch(`http://localhost:4000/projects/${project.id}`, {
 			method: 'DELETE'
 		})
 		.then(res => res.json())
-		//pass project to App.js
 		.then(() => deleteProject(project))
 	}
 
-	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ JSX
 	return (
 		<li className="card">
 			<figure className="image">
 				<img src={image} alt={name} />
 				{/* patch statement for claps in App.js */}
-				{/* rendering claps state here for updated claps */}
 				<button onClick={handleClap} className="claps">
 					👏{projectClaps}
 				</button>
