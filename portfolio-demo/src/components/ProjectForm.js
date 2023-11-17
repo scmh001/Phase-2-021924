@@ -56,26 +56,10 @@ function ProjectForm({ addProject }) {
 		// setLink('')
 		// setImage('')
 
-		//~~~~~~~~~~~~~~~~~~~~~POST REQUEST~~~~~~~~~~~~~~~~~~~~
-		fetch("http://localhost:4000/projects", {
-			method: "POST",
-			body: JSON.stringify({
-				...form,
-				phase: parseInt(form.phase),
-			}),
-			headers: {
-				"content-type": "application/json",
-			},
-		})
-		.then((res) => res.json())
-		.then((data) => {
-			//✅ 3a. Use inverse data flow to include the new project in the projects state in App
-			//🛑  call addProject with data returned by POST request so that we can also pass up id created by json-server
-			addProject(data); 
-			//🛑 reset form on successful submit
-			setForm(formOutline);
-		})
-		.catch(err => console.log(err))
+		//✅ 3a. Use inverse data flow to include the new project in the projects state in App
+		addProject(data); 
+		//🛑 reset form state
+		setForm(formOutline);
 	};
 
 
