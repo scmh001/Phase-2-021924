@@ -3,15 +3,15 @@ import Header from "./components/Header";
 import ProjectList from "./components/ProjectList";
 import ProjectForm from "./components/ProjectForm";
 
-// ✅ 2. Implement useEffect in App component to load projects
-// ✅ 2a. Import the useEffect hook from the React library
+// ✅ 1. Implement useEffect in App component to load projects
+// ✅ 1a. Import the useEffect hook from the React library
 function App() {
 
   const [darkMode, setDarkMode] = useState(true)
   const [ projects, setProjects ] = useState([])
 
-  // ✅ 2b. Use useEffect and make a GET request using the fetch method
-  // ✅ 2c. Update projects state to the response from the server
+  // ✅ 1b. Use useEffect and make a GET request using the fetch method
+  // ✅ 1c. Update projects state to the response from the server
   // ✅ 3. Demonstrate the order of operations between rendering a component and running the side effect
   // ✅ - Place a console.log() inside the App component as well as the useEffect method
   // ✅ - Open up the devtools to observe when each phase of the component will

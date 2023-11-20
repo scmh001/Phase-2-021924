@@ -19,10 +19,10 @@ function ProjectForm({ addProject }) {
 		});
 	};
 
-	//✅ 1. Persist the new project upon the ProjectForm submission
+	//✅ 2. Persist the new project upon the ProjectForm submission
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		//✅ 1a. 1a. Send the new project data to the server using a POST fetch request
+		//✅ 2a. Send the new project data to the server using a POST fetch request
 		fetch("http://localhost:4000/projects", {
 			method: "POST",
 			body: JSON.stringify({
