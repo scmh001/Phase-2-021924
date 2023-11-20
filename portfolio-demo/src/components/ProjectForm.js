@@ -23,23 +23,8 @@ function ProjectForm({ addProject }) {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		//✅ 2a. Send the new project data to the server using a POST fetch request
-		fetch("http://localhost:4000/projects", {
-			method: "POST",
-			body: JSON.stringify({
-				...form,
-				phase: parseInt(form.phase),
-			}),
-			headers: {
-				"content-type": "application/json",
-			},
-		})
-		.then((res) => res.json())
-		.then((data) => {
-			//🛑 add data returned by server so that it includes the id
-			addProject(data); 
-			setForm(formOutline);
-		})
-		.catch(err => console.log(err))
+		addProject({...form, phase: parseInt(form.phase)}); 
+		setForm(formOutline)
 	};
 
 	
