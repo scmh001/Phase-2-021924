@@ -221,7 +221,7 @@ setterFuncForArray(prevArrayVariable => [...prevArrayVariable, newValue])
 
 ## React Lifecycle
 
-<img width="700px" src="https://media.licdn.com/dms/image/D5612AQE5Nzfep6s1Ww/article-inline_image-shrink_1500_2232/0/1654106745367?e=1686787200&v=beta&t=-L8G2BVZeprAmOVOE6QHdE_wJFpcpuhxhWZgAIBPpAA"> 
+<img width="700px" src="https://i1.wp.com/programmingwithmosh.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-31-at-1.44.28-PM.png"> 
 
 ---
 
