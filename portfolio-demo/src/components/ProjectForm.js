@@ -57,7 +57,7 @@ function ProjectForm({ addProject }) {
 		// setImage('')
 
 		//✅ 3a. Use inverse data flow to include the new project in the projects state in App
-		addProject(form); 
+		addProject({...form, phase: parseInt(form.phase)}); 
 		//🛑 reset form state
 		setForm(formOutline);
 	};
