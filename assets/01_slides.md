@@ -307,7 +307,7 @@ function Card({greeting, subGreeting}) {
 
 ---
 
-## Deliverable 2-4
+## Deliverable 2-3
 
 ---
 
