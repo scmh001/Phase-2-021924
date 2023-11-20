@@ -1,4 +1,3 @@
-import { useState } from "react";
 import ProjectListItem from "./ProjectListItem";
 
 //✅ 4. Create a search by name filter in ProjectList
@@ -7,24 +6,9 @@ function ProjectList({ projects, phaseState, updatePhase }) {
 	//✅ 4b. Create a controlled form for the search query
 	//✅ 4c. On search query change update the searchQuery
 
-	const [searchQuery, setSearchQuery] = useState("");
 	const filteredProjects = projects.filter(
-		//🛑 check if phase matches: phaseState === 0 || project.phase === phaseState AND
-		//🛑 check if query matches: searchQuery === '' || project.name.toLowerCase().includes(searchQuery.toLowerCase())
 		(project) => {
-			//🛑 return (
-			// 	(phaseState === 0 || project.phase === phaseState) &&
-			// 	(searchQuery === '' || project.name.toLowerCase().includes(searchQuery.toLowerCase()))
-			// )
-			if (phaseState === 0 || project.phase === phaseState) {
-				if (project.name.toLowerCase().includes(searchQuery.toLowerCase())) {
-					return true;
-				} else {
-					return false;
-				}
-			} else {
-				return false;
-			}
+			return project.phase === phaseState || phaseState === 0
 		}
 	);
 
@@ -43,8 +27,6 @@ function ProjectList({ projects, phaseState, updatePhase }) {
 				type="text"
 				placeholder="Search..."
 				name="search"
-				value={searchQuery}
-				onChange={(e) => setSearchQuery(e.target.value)}
 			/>
 			<ul className="cards">
 				{filteredProjects.map((project) => (

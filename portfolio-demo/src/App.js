@@ -8,7 +8,6 @@ import projectsData from './projects'
 function App() {
 
   const [darkMode, setDarkMode] = useState(true)
-  const [ projects, setProjects ] = useState(projectsData)
   const [phaseState, setPhase] = useState(0)
 
   const updatePhase = (phaseNumber) => {
@@ -19,15 +18,11 @@ function App() {
     setDarkMode(prevDarkMode => !prevDarkMode)
   }
 
-  const addProject = (project) => {
-    setProjects([...projects, project])
-  }
-  
   return (
     <div className={darkMode ? "App" : "App light"}>
       <Header handleClick={updateDarkMode} darkMode={darkMode} />
-      <ProjectForm addProject={addProject} />
-      <ProjectList phaseState={phaseState} updatePhase={updatePhase} projects={projects}/>
+      <ProjectForm />
+      <ProjectList phaseState={phaseState} updatePhase={updatePhase} projects={projectsData}/>
     </div>
   );
 }
