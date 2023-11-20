@@ -1,38 +1,12 @@
-import { useState, useEffect } from "react";
-
-// ✅ 1a. Make ProjectEditForm a controlled form
-function ProjectEditForm({ projectToEdit, editProject }) {
-
-	const [formData, setFormData] = useState({...projectToEdit});
-
-	//👍 ~~~~ UPDATE FORMDATA WHEN PROJECTTOEDIT CHANGES (IN APP.JS)
-	useEffect(() => {
-		setFormData({...projectToEdit})
-	}, [projectToEdit])
+function ProjectEditForm() {
 
 	// ✅ 3. Submit the edit project form and make a PATCH request
 	// ✅ 3a. In App create a function that executes the PATCH request.
 	// ✅ 3b. In App update projects with the revised project and reset projectToEdit.
 	// ✅ 3c. Pass this function down to ProjectEditForm
-	//👍 ~~~~ PASS FORMDATA TO APP.JS FOR PATCH
-	const handleSubmit = (e) => {
-		e.preventDefault()
-		editProject(formData)
-	};
-
-	//👍 ~~~~ UPDATE FORMDATA ON INPUT CHANGE
-	const handleOnChange = (e) => {
-		setFormData(
-			{
-				...formData,
-				[e.target.name]: e.target.value
-			}
-		)
-	};
 
 	return (
-		//🛑 if projectToEdit HAS NO KEYS, hide form
-		<form onSubmit={handleSubmit} className="form" autoComplete="off" style={{display: Object.keys(projectToEdit).length === 0 ? "none" : "flex"}}>
+		<form className="form" autoComplete="off" style={{"display": "flex"}}>
 			<h3>Edit Project</h3>
 
 			<label htmlFor="name">Name</label>
@@ -40,24 +14,18 @@ function ProjectEditForm({ projectToEdit, editProject }) {
 				type="text"
 				id="name"
 				name="name"
-				value={formData.name}
-				onChange={handleOnChange}
 			/>
 
 			<label htmlFor="about">About</label>
 			<textarea
 				id="about"
 				name="about"
-				value={formData.about}
-				onChange={handleOnChange}
 			/>
 
 			<label htmlFor="phase">Phase</label>
 			<select
 				name="phase"
 				id="phase"
-				value={formData.phase}
-				onChange={handleOnChange}
 			>
 				<option value="1">Phase 1</option>
 				<option value="2">Phase 2</option>
@@ -71,8 +39,6 @@ function ProjectEditForm({ projectToEdit, editProject }) {
 				type="text"
 				id="link"
 				name="link"
-				value={formData.link}
-				onChange={handleOnChange}
 			/>
 
 			<label htmlFor="image">Screenshot</label>
@@ -80,8 +46,6 @@ function ProjectEditForm({ projectToEdit, editProject }) {
 				type="text"
 				id="image"
 				name="image"
-				value={formData.image}
-				onChange={handleOnChange}
 			/>
 
 			<button type="submit">Update Project</button>

@@ -8,32 +8,18 @@ import { FaPencilAlt, FaTrash } from "react-icons/fa";
 // ✅ 5a. Create an onClick event handler
 // ✅ 5b. When clicked, use a fetch request to delete the project from the database
 // ✅ 5c. Pass this information to App and remove the appropriate project from projects
-function ProjectListItem({ project, editProject, updateProjectToEdit, deleteProject }) {
+function ProjectListItem({ project }) {
 	let { id, name, about, image, claps, link, phase } = project;
 	const [projectClaps, setProjectClaps] = useState(claps);
 
 	const handleClap = () => {
-		//🛑 patch request, callback function editProject in App.js
-		editProject({
-			...project,
-			claps: project.claps + 1
-		})
 		setProjectClaps((prevProjectClaps) => prevProjectClaps + 1);
 	};
-
-	const handleDelete = () => {
-		fetch(`http://localhost:4000/projects/${project.id}`, {
-			method: 'DELETE'
-		})
-		.then(res => res.json())
-		.then(() => deleteProject(project))
-	}
 
 	return (
 		<li className="card">
 			<figure className="image">
 				<img src={image} alt={name} />
-				{/* patch statement for claps in App.js */}
 				<button onClick={handleClap} className="claps">
 					👏{projectClaps}
 				</button>
@@ -49,12 +35,12 @@ function ProjectListItem({ project, editProject, updateProjectToEdit, deleteProj
 			<footer className="extra">
 				<span className="badge blue">Phase {phase}</span>
 				<div className="manage">
-					{/* edit button, update projectToEdit state in App.js */}
-					<button onClick={() => updateProjectToEdit(project)}>
+					{/* edit button */}
+					<button>
 						<FaPencilAlt />
 					</button>
 					{/* delete button */}
-					<button onClick={() => handleDelete()}>
+					<button>
 						<FaTrash />
 					</button>
 				</div>
