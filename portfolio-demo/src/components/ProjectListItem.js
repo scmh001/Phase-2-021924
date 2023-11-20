@@ -6,7 +6,6 @@ function ProjectListItem({ project }) {
 	const [projectClaps, setProjectClaps] = useState(claps)
 
 	const handleClap = () => {
-
 		setProjectClaps(prevProjectClaps => prevProjectClaps + 1)
 	}
 

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import ProjectListItem from "./ProjectListItem";
 
-// ✅ 3. Refactor the phase filter component out of `ProjectList` and implement inverse data flow
-// ✅ 3a. Move the `phase` state from `ProjectList` to `App`
+// ✅ 2. Refactor the phase filter component out of `ProjectList` and implement inverse data flow
+// ✅ 2a. Move the `phase` state from `ProjectList` to `App`
 function ProjectList({ projects, phaseState, updatePhase }) {
 
 	//🛑 move filtering process here because it relies on phaseState which is getting updated in this component
@@ -14,7 +14,7 @@ function ProjectList({ projects, phaseState, updatePhase }) {
 		<section>
 			<h2>Project List</h2>
 			<div className="filter">
-				{/* ✅ 3c. Using inverse data flow, get the value of the phase from ProjectList UP to the App component */}
+				{/* ✅ 2c. Using inverse data flow, get the value of the phase from ProjectList UP to the App component */}
 				{/* ✅ - Invoke the callback function from the onClick event listener */}
 				<button onClick={() => updatePhase(0)}>All</button>
 				<button onClick={() => updatePhase(5)}>Phase 5</button>
