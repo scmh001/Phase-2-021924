@@ -9,6 +9,7 @@ function App() {
 
   const [darkMode, setDarkMode] = useState(true)
   const [phaseState, setPhase] = useState(0)
+  const [projects, setProjects] = useState(projectsData)
 
   const updatePhase = (phaseNumber) => {
 		setPhase(phaseNumber)
@@ -18,11 +19,17 @@ function App() {
     setDarkMode(prevDarkMode => !prevDarkMode)
   }
 
+  const addProject = (newProject) => {
+    console.log(newProject)
+    //...projects, destructuring allows us to create new array with elements from destructured array
+    setProjects([...projects, newProject])
+  }
+
   return (
     <div className={darkMode ? "App" : "App light"}>
       <Header handleClick={updateDarkMode} darkMode={darkMode} />
-      <ProjectForm />
-      <ProjectList phaseState={phaseState} updatePhase={updatePhase} projects={projectsData}/>
+      <ProjectForm addProject={addProject} />
+      <ProjectList phaseState={phaseState} updatePhase={updatePhase} projects={projects}/>
     </div>
   );
 }
