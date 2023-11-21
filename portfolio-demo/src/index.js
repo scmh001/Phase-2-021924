@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter as Router } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import routes from './routes.js'
 import './index.css';
-import App from './App';
 
-//✅ 1. Install and setup react router in index.js
-//✅ 1a. Within `index.js`, import the `react-router-dom` library and wrap the `App` component with `BrowserRouter` 
+// ✅ 2. Create a `RouterProvider` in `index.js`.
+// ✅ 2a. Import `createBrowserRouter` and `RouterProvider`.
+// ✅ 2b. Create a router with `createBrowserRouter` that accepts `routes` from `routes.js`.
+const router = createBrowserRouter(routes)
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <Router>
-        <App />
-    </Router>
+    // ✅ 2c. Render `RouterProvider` in the root.
+    <RouterProvider router={router} />
 );

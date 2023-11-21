@@ -1,35 +1,36 @@
-import { useState } from "react";
 import { FaPencilAlt, FaTrash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-function ProjectListItem({ project, deleteProject }) {
+// ✅ 5. Update `ProjectListItem`
+// ✅ 6. Manage delete project.
+function ProjectListItem({ project }) {
 	let { id, name, about, image, claps, link, phase } = project;
 	const navigate = useNavigate();
 
-	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~DELETE PROJECT
 	const handleDelete = () => {
 		fetch(`http://localhost:4000/projects/${project.id}`, {
 			method: "DELETE",
 		})
 			.then((res) => res.json())
 			.then(() => {
-				deleteProject(project);
+				// ✅ 6a. On successful `DELETE` request redirect to `/projects`.
 				navigate("/projects");
 			});
 	};
 
-	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ JSX
 	return (
 		<li className="card">
 			<figure className="image">
 				<img src={image} alt={name} />
 			</figure>
 			<section className="details">
-				{/* 7. create link to project details page */}
-				<Link to={`/projects/${id}`}>
+			{/* ✅ 5a. Create a `NavLink` for each project that redirects to `ProjectDetails`.  */}
+			{/* ✅ - The link is to `/projects/:id` */}
+			{/* ✅ 5b. Use a fetch request in `ProjectDetails` to access a single project.  Use `useParams` to access the id. */}
+				<NavLink to={`/projects/${id}`}>
 					<h4>{name}</h4>
-				</Link>
+				</NavLink>
 				<p>{about}</p>
 				<p>
 					<a href={link}>Link</a>
@@ -39,15 +40,11 @@ function ProjectListItem({ project, deleteProject }) {
 			<footer className="extra">
 				<span className="badge blue">Phase {phase}</span>
 				<div className="manage">
-					{/* 8. make link to EditProject.js */}
-
-					{/* <button onClick={() => updateProjectToEdit(project)}> */}
 					<button class="manage-button">
-						<Link to={`/projects/${id}/edit`}>
+						<NavLink to={`/projects/${id}/edit`}>
 							<FaPencilAlt />
-						</Link>
+						</NavLink>
 					</button>
-					{/* </button> */}
 					<button onClick={() => handleDelete()}>
 						<FaTrash />
 					</button>

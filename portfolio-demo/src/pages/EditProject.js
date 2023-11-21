@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
+// ✅ 7. Manage edit project.
+// ✅ 7a. On edit button click redirect to `/projects/:id/edit`. 
+// ✅ 7b. On successful `PATCH` request redirect to `/projects/:id`.
 function EditProject() {
 	const { id } = useParams();
-
 	const navigate = useNavigate();
 	const [formData, setFormData] = useState({});
 
@@ -13,7 +15,6 @@ function EditProject() {
 			.then((data) => setFormData(data));
 	}, []);
 
-	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~PATCH REQUEST
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
@@ -32,7 +33,6 @@ function EditProject() {
 			.then(() => navigate(`/projects/${id}`));
 	};
 
-	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ UPDATE FORMDATA ON INPUT CHANGE
 	const handleOnChange = (e) => {
 		setFormData({
 			...formData,
@@ -40,7 +40,6 @@ function EditProject() {
 		});
 	};
 
-	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ JSX
 	return (
 		<form onSubmit={handleSubmit} className="form" autoComplete="off">
 			<h3>Edit Project</h3>

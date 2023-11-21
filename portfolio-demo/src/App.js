@@ -1,14 +1,8 @@
-import { useState, useEffect } from 'react'
-import { Routes, Route } from 'react-router-dom'
-import Header from "./components/Header";
-//all pages to be used as routes
-import Home from './pages/Home'
-import About from './pages/About'
-import CreateProject from './pages/CreateProject'
-import EditProject from './pages/EditProject'
-import ProjectDetails from './pages/ProjectDetails'
-import ProjectsPage from './pages/ProjectsPage'
-
+import { useState } from 'react'
+import { Outlet } from 'react-router-dom'
+import Header from "./pages/Header";
+// ✅ 3. Update `App.js` to include `Header` on every page.
+// ✅ 3a. Import `Outlet` from `react-router-dom`.
 function App() {
 
   const [darkMode, setDarkMode] = useState(true)
@@ -17,24 +11,11 @@ function App() {
     setDarkMode(prevDarkMode => !prevDarkMode)
   }
 
-  //✅ 2. Creater a Router tree in `App.js` with the routes in the README
   return (
     <div className={darkMode ? "App" : "App light"}>
-      {/* ✅ 3. Add `Link`s and `NavLink`s in `Header` for the new routes */}
-      {/* ✅ 3a. Include a `Link` on button `View All Projects` in `Home` that navigates to `/projects` */}
-      {/* ✅ 3b. In `ProjectsPage` replace `<CreateProjectForm />` with a `Link` to the appropriate route */}
       <Header updateDarkMode={updateDarkMode} darkMode={darkMode} />
-
-      <Routes>
-      <Route path="/projects/:id/edit" element={<EditProject />} />
-
-        <Route path="/projects/:id" element={<ProjectDetails />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/projects" element={<ProjectsPage  />} />
-        <Route path="/new" element={<CreateProject />} />
-        <Route path="/" element={<Home />} />
-      </Routes>
+      {/* ✅ 3b. Include the `Outlet` component in the `JSX`. */}
+      <Outlet />
     </div>
   );
 }

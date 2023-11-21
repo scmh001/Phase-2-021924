@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ProjectListItem from "./ProjectListItem";
 
-function ProjectList({ projects, deleteProject }) {
+function ProjectList({ projects }) {
 	const [searchQuery, setSearchQuery] = useState("");
 	const [phaseState, setPhase] = useState(0);
 
@@ -14,7 +14,6 @@ function ProjectList({ projects, deleteProject }) {
 		}
 	);
 
-	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~JSX
 	return (
 		<section>
 			<h2>Project List</h2>
@@ -36,7 +35,7 @@ function ProjectList({ projects, deleteProject }) {
 			<ul className="cards">
 				{filteredProjects.map((project) => (
 					
-					<ProjectListItem key={project.id} project={project} deleteProject={deleteProject} />
+					<ProjectListItem key={project.id} project={project} />
 				))}
 			</ul>
 		</section>

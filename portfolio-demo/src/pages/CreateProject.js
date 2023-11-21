@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
+// ✅ 8. Manage create project.
+// ✅ 8a. On successful form submission redirect to `/projects/:id`.
 function CreateProject() {
 
 	const navigate = useNavigate()
@@ -16,7 +18,6 @@ function CreateProject() {
 
 	const [form, setForm] = useState(formOutline);
 
-	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ POST request
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
@@ -32,7 +33,7 @@ function CreateProject() {
 		})
 		.then((res) => res.json())
 		.then((data) => {
-			navigate(`/projects/${data.id}`) //on success navigate to individual project page
+			navigate(`/projects/${data.id}`)
 		})
 		.catch(err => console.log(err))
 	};
@@ -44,7 +45,6 @@ function CreateProject() {
 		});
 	};
 
-	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~JSX
 	return (
 		<section>
 			<form

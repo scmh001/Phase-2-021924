@@ -1,6 +1,6 @@
 import { useEffect, useState  } from 'react'
-import { Link } from 'react-router-dom'
-import ProjectListItem from '../components/ProjectListItem'
+import { NavLink } from 'react-router-dom'
+import ProjectListItem from './ProjectListItem'
 
 function Home() {
 
@@ -21,12 +21,11 @@ function Home() {
     </p>
 
     <div style={{ margin: "60px 0" }}>
-        {/* create link to project page */}
-        <Link to={"/projects"}>
+        <NavLink to={"/projects"}>
           <button className="button" >
               View All Projects
           </button>
-        </Link>
+        </NavLink>
         {
           topFive.map(el => <ProjectListItem project={el} />)
         }

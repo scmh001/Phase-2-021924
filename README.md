@@ -27,42 +27,37 @@ What URLs do we want our application to have to simulate the feeling of differen
 
 ## Deliverables
 
-#### 1. Install and setup react router in `index.js`
-
-##### 1a. Within `index.js`, import the `react-router-dom` library and wrap the `App` component with `BrowserRouter` 
-
-<br /> 
-
-#### 2. Creater a Router tree in `App.js` with the following routes:
-##### - `/home` to `<Home />`
-##### - `/new` to `<CreateProjectForm />`
-##### - `/about` to `<About />`
-##### - `/projects` to `<ProjectsPage />`
-##### - `/projects/:id` to `<ProjectDetails />`
-##### - `/projects/new` to `<CreateProjectForm />`
-##### - `/projects/:id/edit` to `<EditProjectForm />`
-
+#### 1. Create `routes.js`.
+##### 1a. In `routes.js` create an array for routes.
+##### 1b. Make a route for `<App />`
+##### 1c. For the `<App />` route create an array of children that represent all the pages (Home, About, Projects, etc.)
 
 <br /> 
 
+#### 2. Create a `RouterProvider` in `index.js`.
+##### 2a. Import `createBrowserRouter` and `RouterProvider`.
+##### 2b. Create a router with `createBrowserRouter` that accepts `routes` from `routes.js`.
+##### 2c. Render `RouterProvider` in the root.
 
-#### 3. Add `Link`s and `NavLink`s in `Header` for the new routes
-##### 3a. Include a `Link` on button `View All Projects` in `Home` that navigates to `/projects`
-##### 3b. In `ProjectsPage` replace `<CreateProjectForm />` with a `Link` to the appropriate route
-
-<br /> 
-
-#### 4. In `CreateProjectForm` redirect to the `/projects` page when a new project is successfully created.
-
-
-<br /> 
-
-
-#### 8. In `ProjectListItem` add a `Link` that navigates to `/project/:id`
-##### 8a. Include the id in the `Link`
-##### 8b. Use a fetch request in `ProjectDetails` to access a single project
 
 <br />
+
+#### 3. Update `App.js` to include `Header` on every page.
+##### 3a. Import `Outlet` from `react-router-dom`.
+##### 3b. Include the `Outlet` component in the `JSX`.
+
+<br />
+
+#### 4. Add `NavLink`'s throughout the site.
+##### 4a. Add `NavLink`s in `Header`.
+##### 4b. In `Home` add `NavLink` to button `View All Projects`.  Direct it to `/projects`.
+
+<br /> 
+
+#### 5. Update `ProjectListItem`
+##### 5a. Create a `NavLink` for each project that redirects to `ProjectDetails`. 
+##### - The link is to `/projects/:id`
+##### 5b. Use a fetch request in `ProjectDetails` to access a single project.  Use `useParams` to access the id.
 
 ```js
     <div className="card project-detail">
@@ -93,10 +88,20 @@ What URLs do we want our application to have to simulate the feeling of differen
     </div>
 ```
 
+<br />
 
-<br /> 
 
-#### 9. In `App` create a route for `/project/:id/edit`
-##### 9a. In `ProjectDetails` create a `Link` to `/project/:id/edit` with state `project`
-##### 9b. Navigate to `/projects` upon successful submission of the edit form.
+#### 6. Manage delete project.
+##### 6a. On successful `DELETE` request redirect to `/projects`.
+
+<br />
+
+#### 7. Manage edit project.
+##### 7a. On edit button click redirect to `/projects/:id/edit`
+##### 7b. On successful `PATCH` request redirect to `/projects/:id`.
+
+<br />
+
+#### 8. Manage create project.
+##### 8a. On successful form submission redirect to `/projects/:id`.
 

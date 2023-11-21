@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
-import ProjectList from '../components/ProjectList'
+import ProjectList from './ProjectList'
 
-//4. refactor to include project list, filtering, searching
 function ProjectsPage() {
   const [ projects, setProjects ] = useState([])
 
@@ -15,20 +14,9 @@ function ProjectsPage() {
     .then(data => setProjects(data))
   }
 
-    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ FOR DELETE REQUEST IN PROJECTLISTITEM.JS
-    const deleteProject = (project) => {
-      //remove project from projects state
-      setProjects(
-        [...projects].filter(el => 
-          project.id === el.id ? false : true
-        )
-      )
-    }
-
-
   return (
     <div>
-      <ProjectList projects={projects} deleteProject={deleteProject} />
+      <ProjectList projects={projects} />
     </div>
   )
 }
