@@ -7,9 +7,5 @@ import './index.css';
 // ✅ 2. Create a `RouterProvider` in `index.js`.
 // ✅ 2a. Import `createBrowserRouter` and `RouterProvider`.
 // ✅ 2b. Create a router with `createBrowserRouter` that accepts `routes` from `routes.js`.
-const router = createBrowserRouter(routes)
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-    // ✅ 2c. Render `RouterProvider` in the root.
-    <RouterProvider router={router} />
-);
+
+// ✅ 2c. Render `RouterProvider` in the root.

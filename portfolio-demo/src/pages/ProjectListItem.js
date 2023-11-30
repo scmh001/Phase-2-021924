@@ -6,17 +6,9 @@ import { useNavigate } from "react-router-dom";
 // ✅ 6. Manage delete project.
 function ProjectListItem({ project }) {
 	let { id, name, about, image, claps, link, phase } = project;
-	const navigate = useNavigate();
 
 	const handleDelete = () => {
-		fetch(`http://localhost:4000/projects/${project.id}`, {
-			method: "DELETE",
-		})
-			.then((res) => res.json())
-			.then(() => {
-				// ✅ 6a. On successful `DELETE` request redirect to `/projects`.
-				navigate("/projects");
-			});
+		// ✅ 6a. On successful `DELETE` request redirect to `/projects`.
 	};
 
 	return (
@@ -28,9 +20,6 @@ function ProjectListItem({ project }) {
 			{/* ✅ 5a. Create a `NavLink` for each project that redirects to `ProjectDetails`.  */}
 			{/* ✅ - The link is to `/projects/:id` */}
 			{/* ✅ 5b. Use a fetch request in `ProjectDetails` to access a single project.  Use `useParams` to access the id. */}
-				<NavLink to={`/projects/${id}`}>
-					<h4>{name}</h4>
-				</NavLink>
 				<p>{about}</p>
 				<p>
 					<a href={link}>Link</a>

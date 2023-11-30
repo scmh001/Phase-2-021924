@@ -17,20 +17,6 @@ function EditProject() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-
-		fetch(`http://localhost:4000/projects/${id}`, {
-			method: "PATCH",
-			body: JSON.stringify({
-				...formData,
-				phase: parseInt(formData.phase),
-				claps: parseInt(formData.claps),
-			}),
-			headers: {
-				"content-type": "application/json",
-			},
-		})
-			.then((res) => res.json())
-			.then(() => navigate(`/projects/${id}`));
 	};
 
 	const handleOnChange = (e) => {

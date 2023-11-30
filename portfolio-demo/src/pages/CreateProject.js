@@ -5,8 +5,6 @@ import { useNavigate } from 'react-router-dom'
 // ✅ 8a. On successful form submission redirect to `/projects/:id`.
 function CreateProject() {
 
-	const navigate = useNavigate()
-
   	const formOutline = {
 		name: "",
 		about: "",
@@ -33,7 +31,7 @@ function CreateProject() {
 		})
 		.then((res) => res.json())
 		.then((data) => {
-			navigate(`/projects/${data.id}`)
+
 		})
 		.catch(err => console.log(err))
 	};
