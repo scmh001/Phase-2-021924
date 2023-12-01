@@ -8,7 +8,9 @@ function Home() {
 
   //✅ 9. Create homepage with top 5 liked projects.
   useEffect(() => {
-    fetch('http://localhost:4000/projects')
+    //sort my data by likes
+    //get the first 5
+    fetch('http://localhost:4000/projects?_sort=claps&_order=desc&_limit=5')
     .then(res => res.json())
     .then(data => setTopFive(data))
   }, [])
@@ -22,9 +24,11 @@ function Home() {
     </p>
 
     <div style={{ margin: "60px 0" }}>
-          <button className="button" >
+          <NavLink to={'/projects'}>
+            <button className="button" >
               View All Projects
-          </button>
+            </button>
+          </NavLink>
 
         {
           topFive.map(el => <ProjectListItem project={el} key={el.id} />)

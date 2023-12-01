@@ -5,18 +5,33 @@ import { useParams, useNavigate } from "react-router-dom";
 // ✅ 7a. On edit button click redirect to `/projects/:id/edit`. 
 // ✅ 7b. On successful `PATCH` request redirect to `/projects/:id`.
 function EditProject() {
+	//get id from params 
 	const { id } = useParams();
-	const navigate = useNavigate();
+	const navigate = useNavigate()
 	const [formData, setFormData] = useState({});
 
 	useEffect(() => {
+		//fetch GET project info based on :id from params
 		fetch(`http://localhost:4000/projects/${id}`)
 			.then((res) => res.json())
+			//update formData with info from database
 			.then((data) => setFormData(data));
 	}, []);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		fetch(`http://localhost:4000/projects/${id}`, {
+			method: 'PATCH',
+			headers: {'content-type': 'application/json'},
+			body: JSON.stringify({
+				...formData,
+				phase: parseInt(formData.phase)
+			})
+		})
+		.then(res => res.json())
+		.then(data => {
+			navigate(`/projects/${data.id}/etc`)
+		})
 	};
 
 	const handleOnChange = (e) => {

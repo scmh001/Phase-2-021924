@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Header from "./pages/Header";
+import { Outlet } from 'react-router-dom'
 // ✅ 3. Update `App.js` to include `Header` on every page.
 // ✅ 3a. Import `Outlet` from `react-router-dom`.
 function App() {
@@ -14,6 +15,7 @@ function App() {
     <div className={darkMode ? "App" : "App light"}>
       <Header updateDarkMode={updateDarkMode} darkMode={darkMode} />
       {/* ✅ 3b. Include the `Outlet` component in the `JSX`. */}
+      <Outlet />
     </div>
   );
 }
