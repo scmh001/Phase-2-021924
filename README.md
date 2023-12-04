@@ -7,15 +7,15 @@
 - Incorporate client-side routing into a single-page application in React
 
 
-| Lecture | Videos | Starter | Solution |
-| ------- | ------ | ------- | -------- |
-| 1. Components & Props | [Video]() | [Starter]() | [Solution]() |
-| 2. State & Events | [Video]() | [Starter]() | [Solution]() |
-| 3. Information Flow  | [Video]() | [Starter]() | [Solution]()| 
-| 4. Forms  | [Video]() | [Starter]() | [Solution]() |
-| 5. Side Effects & Data Fetching  | [Video]() | [Starter]() | [Solution]() |
-| 6. PATCH & DELETE  | [Video]() | [Starter]() | [Solution]() |
-| 7. Client-Side Routing  | [Video]() | [Starter]() | [Solution]() |
+| Lecture | Videos | Solution |
+| ------- | ------ | -------- |
+| 1. Components & Props | [Video](https://youtu.be/W4etmBSeCN0) | [Solution](https://github.com/rachelAtFlatiron/EAST-SE-103023-Phase-2/tree/01_starter) |
+| 2. State & Events | [Video](https://youtu.be/eFnTdPZSdjE) | [Solution](https://github.com/rachelAtFlatiron/EAST-SE-103023-Phase-2/tree/02_starter) |
+| 3. Information Flow  | [Video](https://youtu.be/uv3TGwTFzDk) | [Solution](https://github.com/rachelAtFlatiron/EAST-SE-103023-Phase-2/tree/03_starter) | 
+| 4. Forms  | [Video](https://youtu.be/RrxxP0S7IHg) | [Solution](https://github.com/rachelAtFlatiron/EAST-SE-103023-Phase-2/tree/04_starter) |
+| 5. Side Effects & Data Fetching  | [Video](https://youtu.be/s2n62AWHQcI) | [Solution](https://github.com/rachelAtFlatiron/EAST-SE-103023-Phase-2/tree/04_starter) |
+| 6. PATCH & DELETE  | [Video](https://youtu.be/pr4g_oOl848) | [Solution](https://github.com/rachelAtFlatiron/EAST-SE-103023-Phase-2/tree/06_starter) |
+| 7. Client-Side Routing  | [Video](https://youtu.be/WQ8GFRS3908) | [Solution](https://github.com/rachelAtFlatiron/EAST-SE-103023-Phase-2/tree/07_starter) |
 
 ***
 ## 1: Components and Props
