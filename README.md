@@ -9,13 +9,13 @@
 
 | Lecture | Videos | Solution |
 | ------- | ------ | -------- |
-| 1. Components & Props | [Video]() | [Solution]() |
-| 2. State & Events | [Video]() | [Solution]() |
-| 3. Information Flow  | [Video]() | [Solution]() | 
-| 4. Forms  | [Video]() | [Solution]() |
-| 5. Side Effects & Data Fetching  | [Video]() | [Solution]() |
-| 6. PATCH & DELETE  | [Video]() | [Solution]() |
-| 7. Client-Side Routing  | [Video]() | [Solution]() |
+| 1. Components & Props | [Video]() | [Starter](https://github.com/rachelAtFlatiron/Phase-1-021924/tree/01_starter) | [Solution]() |
+| 2. State & Events | [Video]() | [Starter](https://github.com/rachelAtFlatiron/Phase-1-021924/tree/02_starter) | [Solution]() |
+| 3. Information Flow  | [Video]() | [Starter](https://github.com/rachelAtFlatiron/Phase-1-021924/tree/03_starter) | [Solution]() | 
+| 4. Forms  | [Video]() | [Starter](https://github.com/rachelAtFlatiron/Phase-1-021924/tree/04_starter) | [Solution]() |
+| 5. Side Effects & Data Fetching  | [Video]() | [Starter](https://github.com/rachelAtFlatiron/Phase-1-021924/tree/05_starter) | [Solution]() |
+| 6. PATCH & DELETE  | [Video]() | [Starter](https://github.com/rachelAtFlatiron/Phase-1-021924/tree/06_starter) | [Solution]() |
+| 7. Client-Side Routing  | [Video]() | [Starter](https://github.com/rachelAtFlatiron/Phase-1-021924/tree/07_starter) | [Solution]() |
 
 ***
 ## 1: Components and Props
