@@ -18,7 +18,7 @@ function ProjectList({ projects }) {
 	});
 
 	const handleClick = (phase) => {
-		setPhase(phase)
+		setPhase(phase)  //re-render code again. this is how filterd projects keeps getting updated //setPhase causes site to re-render
 	}
 
 	const filterPractice = () => {
@@ -75,7 +75,7 @@ function ProjectList({ projects }) {
 					<button onClick={() => setPhase(1)}>Phase 1</button>
 				</div>
 			</div>
-			<ul className="cards">
+			<ul className="cards"> 
 				{filteredProjects.map((project) => (
 					<ProjectListItem key={project.id} project={project} />
 				))}
@@ -85,3 +85,5 @@ function ProjectList({ projects }) {
 }
 
 export default ProjectList;
+
+// used filtered projects

@@ -8,13 +8,13 @@ function ProjectListItem({ project }) {
 
 	//✅ 2b. create state for claps
 	//set state to claps from database
-	const [claps, setClaps] = useState(project.claps)
+	const [claps, setClaps] = useState(project.claps) // usesState set to take i (index)(claps)
 
 
 	//✅ 2c. create callback to update clap state on button click
 	// function handleClick {}
 	const handleClick = () => {
-		setClaps(prev => prev + 1)
+		setClaps(prev => prev + 1) //previousCardClaps + 1
 	}
 	return (
 		<li className="card">
